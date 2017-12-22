@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.taobao.projectmanager.mapper.ConsumptionMapper">
+ 	
+ 	<insert id = "addConsumption">
+ 		insert into cw_consumption(
+ 		c_id,
+ 		c_name,
+ 		t_id,
+ 		c_note
+ 		)
+ 		values
+ 		(
+ 			#{cId},
+ 			#{cName},
+ 			#{tId},
+ 			#{cNote}
+ 		)
+ 	</insert>
+ 	
+ 	<delete id = "deleteConsumption">
+ 		delete from cw_consumption where c_id = #{c_id}
+ 	</delete>
+ 	
+ 	<update id = "updateConsumption">
+ 		UPDATE cw_consumption SET c_name=#{c_name},c_note= #{c_note},t_id=#{t_id} WHERE c_id=#{c_id}
+ 	</update>
+ 	
+ 	<select id = "queryConsumption" resultType="cn.taobao.projectmanager.pojo.Consumption">
+ 		select c.c_id,c.c_name,c.t_id,c.c_note from cw_consumption c where c.t_id = #{t_id}
+ 	</select>
+</mapper>

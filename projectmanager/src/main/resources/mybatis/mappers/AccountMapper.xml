@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.taobao.projectmanager.mapper.AccountMapper">
+ 	
+ 	<insert id = "addAccount">
+ 		insert into cw_account(
+ 		consume_number,
+ 		c_id,
+ 		consume_cost,
+ 		consume_way,
+ 		consume_time,
+ 		t_id,
+ 		consume_user,
+ 		consume_note,
+ 		consume_flag
+ 		)
+ 		values
+ 		(
+ 			#{consumeNumber},
+ 			#{cId},
+ 			#{consumeCost},
+ 			#{consumeWay},
+ 			#{consumeTime},
+ 			#{tId},
+ 			#{consumeUser},
+ 			#{consumeNote},
+ 			#{consumeFlag}
+ 		)
+ 	</insert>
+ 	
+ 	<select id = "queryAccount" resultType="cn.taobao.projectmanager.pojo.Account">
+ 		select * from cw_account c order by consume_time
+ 	</select>
+</mapper>
